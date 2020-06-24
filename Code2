@@ -1,9 +1,5 @@
 import re
 import urllib.request
-
-import chart
-import pip
-import plotly.plotly
 import plotly.graph_objects as go
 import pandas as pd
 from bs4 import BeautifulSoup
