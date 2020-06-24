@@ -107,9 +107,9 @@ frequency_list = frequency.keys()
 for words in frequency_list:
     print(words, frequency[words])
 """
-print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 print('                                 Histogram ')
-print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 #histogram for word count article 1, 2, 3, 4
 #data frame
 article = ['article 1', 'article 2', 'article 3', 'article 4']
@@ -127,25 +127,11 @@ fig1 = go.Figure(data=[go.Bar(
             x=df.art, y=df.frequencyW,
             text=df.frequencyW,
             textposition='auto',
+            title = 'Word Count VS Frequency',
         )])
 
 fig1.show()
 """
-print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-print('                                 Histogram Test ')
-print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
-py = plotly.plotly('Syah_Isa','brKNQZrmMx8RVoBx4P8H')
-
-cats=['Sweets', 'Meat', 'Veggies', 'Liquids']
-
-JO = { 'name': 'John', 'x': cats, 'y': [14, 7, 2, 5], 'type': 'bar', 'marker':{ 'color': 'rgb(255,0,0)' } }
-
-JA = {'name': 'Jack', 'x': cats, 'y': [5, 11, 10, 9], 'type': 'bar', 'marker': {'color': 'rgb(0,0,255)'} }
-
-omicron = { 'title': 'Portions', 'autosize': False, 'width': 800, 'height': 700 , 'yaxis': {'name': 'food eaten in g'}, 'xaxis': {'name': 'cats'}, 'barmode': 'group','bargroupgap': 0.5,}
-
-py.plot([JO, JA], layout=omicron)
-
 
 print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 print('                  Stop Words Frequency: ')
@@ -197,28 +183,34 @@ for x in collection_a:
     if x == collection_a[0]:
         result1 = ' '.join(resultwords)
         len1 = len(result1.split())
-        print('Stop words frequency for article 1: \n', (len1), 'words')
+        print('Word frequency without stop words for article 1: \n', (len1), 'words')
     if x == collection_a[1]:
         result1 = ' '.join(resultwords)
         len2 = len(result1.split())
-        print('Stop words frequency for article 2: \n', (len2), 'words')
+        print('Word frequency without stop words for article 2: \n', (len2), 'words')
     if x == collection_a[2]:
         result1 = ' '.join(resultwords)
         len3 = len(result1.split())
-        print('Stop words frequency for article 3: \n', (len3), 'words')
+        print('Word frequency without stop words for article 3: \n', (len3), 'words')
     if x == collection_a[3]:
         result1 = ' '.join(resultwords)
         len4 = len(result1.split())
-        print('Stop words frequency for article 4: \n', (len4), 'words')
+        print('Word frequency without stop words for article 4: \n', (len4), 'words')
 
-"""
-print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
+print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 print('                                 Histogram ')
-print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 #histogram for word count article 1, 2, 3, 4
+
+sw1 = res1 - len1
+sw2 = res2 - len2
+sw3 = res3 - len3
+sw4 = res4 - len4
+
 #data frame
 article = ['article 1', 'article 2', 'article 3', 'article 4']
-freqStopWord = [len1, len2, len3, len4]
+freqStopWord = [sw1, sw2, sw3, sw4]
 
 #create dictionary
 histStop = {'art': pd.Series(article), 'frequencyS': pd.Series(freqStopWord)}
@@ -232,12 +224,13 @@ fig2 = go.Figure(data=[go.Bar(
             x=dfS.art, y=dfS.frequencyS,
             text=dfS.frequencyS,
             textposition='auto',
+            title = 'Stop Word VS Frequency',
         )])
 fig2.show()
 
-print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 print('                                 Group histogram ')
-print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 #group histogram
 #data frame
 article = ['article 1', 'article 2', 'article 3', 'article 4']
@@ -265,9 +258,9 @@ fig3.add_trace(go.Bar(
     marker_color='lightsalmon'
 ))
 # Here we modify the tickangle of the xaxis, resulting in rotated labels.
-fig3.update_layout(barmode='group', xaxis_tickangle=-45)
+fig3.update_layout(barmode='group', xaxis_tickangle=-45, title_text = 'Word Count & Stop Word VS Frequency',)
 fig3.show()
-"""
+
 
 
 # positive words file
@@ -369,10 +362,10 @@ print('Total negative words for article two is', nvetrain)
 print('Total negative words for article three is', nvewalk)
 print('Total negative words for article four is', nvecar)
 
-"""
-print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+
+print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 print('                                 Group histogram ')
-print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
+print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
 #group histogram
 #data frame
 article = ['article 1', 'article 2', 'article 3', 'article 4']
@@ -400,9 +393,8 @@ fig4.add_trace(go.Bar(
     marker_color='lightsalmon'
 ))
 # Here we modify the tickangle of the xaxis, resulting in rotated labels.
-fig4.update_layout(barmode='group', xaxis_tickangle=-45)
+fig4.update_layout(barmode='group', xaxis_tickangle=-45, title_text = 'Positive & Negative Word VS Frequency',)
 fig4.show()
-"""
 
 print()
 print('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━')
